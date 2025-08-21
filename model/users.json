@@ -1,0 +1,21 @@
+[
+  {
+    "username": "mithul",
+    "password": "$2b$10$SyjnIUYmKWMxKxnaUk/YkutaHqKR7Ar.qWG8PKm3xD6uYl0hrDNC6"
+  },
+  {
+    "username": "adith",
+    "password": "$2b$10$.E.jMR7cLSXvWNhM1QN0Jer.aQ17qRa68Mfa3BnD8bLuxpizX/fs2"
+  },
+  {
+    "username": "mikey",
+    "password": "$2b$10$lAjFKtjNqvzAia7NAMknBOzRecAZH.xQ.LsG8MyJKtWXFJyx/Col.",
+    "refreshToken": ""
+  },
+  {
+    "username": "asw",
+    "roles":{"Admin":5150},
+    "password": "$2b$10$et5ggnOuixpfp5EMKiUDKuY2cA528NDp/kE0rj3RFwCP2LvAj4Ad2",
+    "refreshToken": ""
+  }
+]
