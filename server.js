@@ -2,7 +2,7 @@ const path=require('path');
 const express=require('express')
 const cookieParser=require('cookie-parser')
 const app=express();
-const verifyJWT=require('./middileware/verifyJWT')
+const verifyJWT=require("./middileware/verifyJWT")
 
 const PORT=process.env.PORT || 3500
 

@@ -5,8 +5,8 @@ const express=require('express')
 const router=express.Router();
 const verifyRoles=require("../../middileware/verifyRoles")
 const ROLES_LIST=require("../../config/ROLES_LIST")
-// const verifyJWT=require('../../middileware/verifyJWT')
-const employeeController=require('../../controllers/employeeControllers')
+const employeeController=require('../../controllers/employeeControllers');
+// const verifyJWT = require('../../middileware/verifyJWT');
 
 router.route('/')
         .get(employeeController.getAllEmployee)

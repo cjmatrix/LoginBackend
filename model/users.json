@@ -14,8 +14,10 @@
   },
   {
     "username": "asw",
-    "roles":{"Admin":5150},
+    "roles": {
+      "Admin": 5150
+    },
     "password": "$2b$10$et5ggnOuixpfp5EMKiUDKuY2cA528NDp/kE0rj3RFwCP2LvAj4Ad2",
-    "refreshToken": ""
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFzdyIsImlhdCI6MTc1NTgzNzY1OSwiZXhwIjoxNzU1OTI0MDU5fQ.TAVdWJkU8pCsoYCLmTetJSnYw0UnVVm18IBM3BbjftQ"
   }
 ]
