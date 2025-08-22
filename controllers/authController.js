@@ -6,8 +6,8 @@ const fsPromise=require('fs').promises
 
 
 const userDB={
-    user:require('../model/users.json'),
-    setUser:function(data){this.user=data}
+    users:require('../model/users.json'),
+    setUser:function(data){this.users=data}
 }
 
 const handleUser=async (req,res)=>{
@@ -18,7 +18,7 @@ const handleUser=async (req,res)=>{
        return res.status(400).json({"message":"username and password required"});
     }
 
-    const userMatch=userDB.user.find(person=>person.username===user);
+    const userMatch=userDB.users.find(person=>person.username===user);
        console.log(userMatch)
 
     if(!userMatch){
@@ -33,14 +33,17 @@ const handleUser=async (req,res)=>{
         const roles=Object.entries(userMatch.roles)
 
         const accessToken=jwt.sign({
-            "username":userMatch.username},
+                "UserInfo":{
+                         "username":userMatch.username,
+                         "roles":roles
+                        }
+             },
             process.env.ACCESS_TOKEN_SECRET,
             {expiresIn:'30s'}
          )
 
          const refreshToken=jwt.sign({
-            "username":userMatch.username,
-            "roles":roles
+            "username":userMatch.username
          },
 
          process.env.REFRESH_TOKEN_SECRET,
@@ -50,11 +53,11 @@ const handleUser=async (req,res)=>{
 
 
         console.log("Tokens are created")
-        const otherUsers=userDB.user.filter(person=>person.username!==userMatch.username);
+        const otherUsers=userDB.users.filter(person=>person.username!==userMatch.username);
         const currentUser={...userMatch,refreshToken};
         userDB.setUser([...otherUsers,currentUser]);
-        console.log(userDB.user);
-        await fsPromise.writeFile(path.join(__dirname,'..','model','users.json'),JSON.stringify(userDB.user,null,2))
+        console.log(userDB.users);
+        await fsPromise.writeFile(path.join(__dirname,'..','model','users.json'),JSON.stringify(userDB.users,null,2))
         res.cookie('jwt',refreshToken,{httpOnly:true,sameSite:"none",secure:true,maxAge:24*60*60*1000})
 
         res.json({accessToken})

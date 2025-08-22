@@ -5,6 +5,6 @@ const router=express.Router();
 
 const registerController=require("../controllers/resgisterController")
 
-router.get("/",registerController.handleNewUser);
+router.post("/",registerController.handleNewUser);
 
 module.exports=router

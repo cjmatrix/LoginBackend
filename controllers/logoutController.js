@@ -6,8 +6,8 @@ require('dotenv').config()
 
 
 const userDB={
-    user:require('../model/users.json'),
-    setUser:function(data){this.user=data}
+    users:require('../model/users.json'),
+    setUser:function(data){this.users=data}
 }
 
 const handleLogout=async (req,res)=>{
@@ -17,21 +17,21 @@ const handleLogout=async (req,res)=>{
 
         const refreshToken=cookies.jwt;
         
-        const userMatch=userDB.user.find(person=>person.refreshToken===refreshToken)
+        const userMatch=userDB.users.find(person=>person.refreshToken===refreshToken)
         if(!userMatch){
             res.clearCookie('jwt',{httpOnly:true,sameSite:"none",secure:true});
             return res.sendStatus(204)
         }
 
-        const otherUser=userDB.user.filter(person=>person.refreshToken!==userMatch.refreshToken);
+        const otherUser=userDB.users.filter(person=>person.refreshToken!==userMatch.refreshToken);
         const currentUser={...userMatch,refreshToken:""}
         userDB.setUser([...otherUser,currentUser])
 
-        console.log(userDB.user)
+        console.log(userDB.users)
 
         await fsPromise.writeFile(
             path.join(__dirname,"..","model","users.json"),
-            JSON.stringify(userDB.user,null,2)
+            JSON.stringify(userDB.users,null,2)
         )
 
         res.clearCookie('jwt',{httpOnly:true,sameSite:"none",secure:true});

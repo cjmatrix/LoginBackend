@@ -17,7 +17,8 @@ const verifyJWT=(req,res,next)=>{
         (err,decoded)=>{
             if(err) return res.sendStatus(403)
 
-            req.user=decoded.username;
+            req.user=decoded.UserInfo.username;
+            req.roles=decoded.UserInfo.roles
             console.log("verified")
             next()
         }

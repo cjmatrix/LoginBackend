@@ -394,3 +394,14 @@
 0011 38 17		82c57c61-4749-4b8d-bc80-b4f3d7e99a2f		GET /auth undefined
 0011 38 22		35e3fe19-45a7-492e-94cc-715b7a6c122a		POST /auth undefined
 0011 38 40		4d6716d0-a381-4d76-9d08-d06f87dc83fd		GET /logout undefined
+0009 06 06		166f7b3f-c1d8-45b6-92e9-4a9e62a31830		POST /resgister undefined
+0009 06 16		9b86b8c6-a381-4ef6-b7b8-62d935edcb6b		POST /resgister undefined
+0009 07 16		4a0e4fcb-a143-4d0a-9c20-ca1775e81bc6		POST /resgister undefined
+0009 07 17		99fac76d-0d5f-4dc6-a793-154cf1f96664		POST /resgister undefined
+0009 10 28		b74a51f3-4cf0-4d5a-b303-23c8db1ecc92		GET /employee undefined
+0009 10 29		98081111-15ab-429a-bc69-9571b198df0b		GET /employee undefined
+0009 10 38		aff79a64-42ad-4ca6-a553-8808fb0663fe		GET /resgister undefined
+0009 10 39		43c2663d-ea86-4fd7-9ab6-6970bdebc184		GET /resgister undefined
+0009 14 07		bf7437b5-1ca1-4a5a-9522-579c0e4ed1f6		GET /auth undefined
+0009 14 09		5b54cdb1-b950-4aeb-b751-d09d98c40fef		GET /auth undefined
+0009 14 19		554f3176-2926-407f-9d07-755421533150		GET /refresh undefined

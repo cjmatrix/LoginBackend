@@ -6,8 +6,8 @@ const path=require('path');
 
 
 const userDB={
-    user:require('../model/users.json'),
-    setUser:function(data){this.user=data}
+    users:require('../model/users.json'),
+    setUser:function(data){this.users=data}
 }
 
 const handleRefreshToken=async (req,res)=>{
@@ -19,7 +19,7 @@ const handleRefreshToken=async (req,res)=>{
     }
     const refreshToken=cookies.jwt;
 
-    const userMatch=userDB.user.find(person=>person.refreshToken===refreshToken);
+    const userMatch=userDB.users.find(person=>person.refreshToken===refreshToken);
        console.log(userMatch)
 
     if(!userMatch){
