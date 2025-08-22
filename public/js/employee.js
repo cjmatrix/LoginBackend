@@ -4,33 +4,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     const accessToken = sessionStorage.getItem('accessToken');
 
     if (!accessToken) {
-        // If no token, redirect to login
+     
         window.location.href = '/login.html';
         return;
     }
 
     try {
-        // Fetch employee data from your API
+     
         const response = await fetch('/employee', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessToken}` // Send the token for verification
+                'authorization': `Bearer ${accessToken}` 
             }
         });
 
         if (response.ok) {
             const employees = await response.json();
-            // Clear any previous list items
+           
             employeeList.innerHTML = '';
-            // Create and append list items for each employee
+           
             employees.forEach(emp => {
                 const li = document.createElement('li');
                 li.textContent = `${emp.firstname} ${emp.lastname}`;
                 employeeList.appendChild(li);
             });
         } else if (response.status === 401 || response.status === 403) {
-            // If token is invalid or expired, redirect to login
+           
             window.location.href = '/login.html';
         } else {
              employeeList.innerHTML = '<li>Error loading employee data.</li>';
@@ -48,4 +48,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             window.location.href = '/login.html';
         });
     }
+    
+    
 });

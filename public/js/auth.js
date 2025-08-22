@@ -128,7 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const password = e.target.password.value;
             const errorMessage = document.getElementById('errorMessage');
 
-            // Send the login request to the /auth endpoint
             const response = await fetch('/auth', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -137,11 +136,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (response.ok) {
                 const data = await response.json();
-                
-                // Save the received accessToken to the browser's session storage
+          
                 sessionStorage.setItem('accessToken', data.accessToken);
                 
-                // Redirect to the employee page
+          
                 window.location.href = '/employee.html';
             } else {
                 errorMessage.textContent = 'Invalid username or password.';
@@ -149,12 +147,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // This part is for your employee.html page, but it's fine to keep it here.
-    if (signoutButton) {
-        signoutButton.addEventListener('click', async () => {
-            sessionStorage.removeItem('accessToken'); // Clear the token on signout
-            await fetch('/logout');
-            window.location.href = '/login.html';
-        });
-    }
+    // // This part is for your employee.html page, but it's fine to keep it here.
+    // if (signoutButton) {
+    //     signoutButton.addEventListener('click', async () => {
+    //         sessionStorage.removeItem('accessToken'); // Clear the token on signout
+    //         await fetch('/logout');
+    //         window.location.href = '/login.html';
+    //     });
+    // }
 });

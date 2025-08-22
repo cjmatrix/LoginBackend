@@ -5,7 +5,7 @@ const app=express();
 const verifyJWT=require("./middileware/verifyJWT")
 require('dotenv').config()
 const PORT=process.env.PORT || 3500
-
+const jwt=require('jsonwebtoken')
 const {logger}=require('./middileware/logE')
 const session = require('express-session');
 
@@ -32,7 +32,29 @@ app.use(session({
 
 
 
+app.get('/login.html', (req, res) => {
+   
+    const token = req.cookies.jwt;
+    if (token) {
 
+        jwt.verify(
+            token,
+            process.env.REFRESH_TOKEN_SECRET,
+            (err, decoded) => {
+                if (err) {
+            
+                    res.sendFile(path.join(__dirname, 'public', 'login.html'));
+                } else {
+           
+                    res.redirect('/employee.html');
+                }
+            }
+        );
+    } else {
+        
+        res.sendFile(path.join(__dirname, 'public', 'login.html'));
+    }
+});
 
 
 app.use(express.static(path.join(__dirname,'public')))
@@ -45,7 +67,7 @@ app.use("/auth",require('./router/auth'))
 app.use("/refresh",require('./router/refresh'))
 app.use("/logout",require('./router/logout'))
 
-// app.use(verifyJWT)
+app.use(verifyJWT)
 
 app.use('/employee',require('./router/api/employees'));
 
@@ -92,9 +114,6 @@ app.get('/login', (req, res) => {
 app.use('/login', require('./router/login')); 
 
 
-app.get('/home', checkAuth, (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'home.html'));
-});
 
 
 app.get('/logout', (req, res) => {
@@ -121,79 +140,3 @@ app.listen(PORT,()=>{
 
 
 
-
-// const path = require('path');
-// const express = require('express');
-// const cookieParser = require('cookie-parser');
-// const app = express();
-// const cors = require('cors');
-// const session = require('express-session'); 
-
-// const PORT = process.env.PORT || 3500;
-
-// app.use(cors());
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
-// app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
-
-
-// app.use(session({
-//     secret: 'your_super_secret_key', 
-//     resave: false,
-//     saveUninitialized: false,
-//     cookie: {
-//         secure: true,
-//         httpOnly: true,
-//         maxAge: 24 * 60 * 60 * 1000 
-//     }
-// }));
-
-
-// const checkAuth = (req, res, next) => {
-//     if (req.session.user) {
-//         next(); 
-//     } else {
-//         res.redirect('/login'); 
-//     }
-// };
-
-
-// app.get('/login', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public', 'login.html'));
-// });
-// app.use('/login', require('./router/login')); 
-
-
-// app.get('/home', checkAuth, (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public', 'home.html'));
-// });
-
-
-// app.get('/logout', (req, res) => {
-//     req.session.destroy(err => {
-//         if (err) {
-//             return res.redirect('/home');
-//         }
-//         res.clearCookie('connect.sid'); 
-//         res.redirect('/login');
-//     });
-// });
-
-
-// app.get('/', (req, res) => {
-//     if (req.session.user) {
-//         res.redirect('/home');
-//     } else {
-//         res.redirect('/login');
-//     }
-// });
-
-
-// app.all(/.*$/, (req, res) => {
-//     res.status(404).send('<h1>404 Not Found</h1>');
-// });
-
-// app.listen(PORT, () => {
-//     console.log(`Server listening on ${PORT}`);
-// });

@@ -26,6 +26,6 @@
       "Admin": 5150
     },
     "password": "$2b$10$et5ggnOuixpfp5EMKiUDKuY2cA528NDp/kE0rj3RFwCP2LvAj4Ad2",
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFzdyIsImlhdCI6MTc1NTg1MzgyNywiZXhwIjoxNzU1OTQwMjI3fQ.8GZ96dNJL05-uRg5UIjoAEEZ_uuKBkEU8ZPIJh3_gQI"
+    "refreshToken": ""
   }
 ]
