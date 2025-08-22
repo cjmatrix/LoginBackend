@@ -2,7 +2,9 @@ const verifyRoles=function(...allowedRoles){
 
     return (req,res,next)=>{
         const rolesArray=[...allowedRoles]
-        if(req?.roles){
+        console.log(rolesArray)
+        console.log(req.roles)
+        if(!req?.roles){
            return res.sendStatus(401)
         }
 

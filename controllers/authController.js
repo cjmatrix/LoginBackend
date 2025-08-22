@@ -30,7 +30,7 @@ const handleUser=async (req,res)=>{
  
     const match= await bcrypt.compare(pwd,userMatch.password);
     if(match){
-        const roles=Object.entries(userMatch.roles)
+        const roles=Object.values(userMatch.roles)
 
         const accessToken=jwt.sign({
                 "UserInfo":{

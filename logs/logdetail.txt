@@ -467,3 +467,12 @@
 0010 09 36		d07e356d-48f8-4f87-9519-788cd64ca9b4		POST /employee undefined
 0010 10 59		f262cc27-bfbb-41f8-9574-4e0cdea2f64b		POST /auth undefined
 0010 11 10		9ac64f65-13d3-4a89-8028-2864ac8818e1		POST /employee undefined
+0010 20 02		53b95a4b-ce47-404b-8340-1d35029a90a9		POST /auth undefined
+0010 20 12		7586a096-177a-4e46-9f23-d985fe66a78d		POST /employee undefined
+0010 40 31		bd82f96f-23ef-4d97-91de-8e3d7035c308		POST /register undefined
+0010 43 04		9f5e78da-0246-40bd-90e1-af269923c252		POST /auth undefined
+0010 43 12		f5cb6d33-a2a2-451a-bacf-5a9cd56fe73c		POST /employee undefined
+0010 43 16		8594514a-833a-4c8b-b043-8cd4f77f3b2c		POST /employee undefined
+0010 43 24		c69dedc6-0195-49bf-a29d-a155d2d24aac		POST /employee undefined
+0010 43 45		2867c837-6d00-4d27-a85f-7abc6edd225c		POST /auth undefined
+0010 43 59		03d0862a-a1f0-4f43-9a02-ab70130ae83c		POST /employee undefined

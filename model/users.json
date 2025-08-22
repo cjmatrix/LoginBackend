@@ -18,6 +18,14 @@
       "Admin": 5150
     },
     "password": "$2b$10$et5ggnOuixpfp5EMKiUDKuY2cA528NDp/kE0rj3RFwCP2LvAj4Ad2",
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFzdyIsImlhdCI6MTc1NTgzNzY1OSwiZXhwIjoxNzU1OTI0MDU5fQ.TAVdWJkU8pCsoYCLmTetJSnYw0UnVVm18IBM3BbjftQ"
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFzdyIsImlhdCI6MTc1NTgzOTU4NCwiZXhwIjoxNzU1OTI1OTg0fQ.GSu03aaBvkoAC89umKIVDj_ITbOX2WSYWUncbL3nzuw"
+  },
+  {
+    "username": "aflah",
+    "roles": {
+      "User": 2001
+    },
+    "password": "$2b$10$FISQ3MQRp0Gq3p94XQ4Y6.nr9I.Ep0Gsmb269lA/WwgMWKDGC1A8G",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFmbGFoIiwiaWF0IjoxNzU1ODM5NjI1LCJleHAiOjE3NTU5MjYwMjV9.-V6fvIVsnnoruppDznDipXDUtoWWQol3atAeYMMCqa8"
   }
 ]
